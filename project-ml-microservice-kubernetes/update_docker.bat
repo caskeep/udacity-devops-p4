@@ -1,2 +1,0 @@
-
-docker push caskeep/api
