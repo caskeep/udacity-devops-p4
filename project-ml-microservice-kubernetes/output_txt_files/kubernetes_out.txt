@@ -1,1 +1,26 @@
-<paste log output from Kubernetes-mediated prediction, here>
+caskeep@caskeepdeAir  ~/Documents/repo/udacity-devops-p4/project-ml-microservice-kubernetes   master ●  ./run_kubernetes.sh                                                        ✔  257  02:37:55
+deployment.apps/udacityp4k8sv2 created
+NAME                             READY   STATUS    RESTARTS   AGE
+udacityp4k8sv2-554b4cc5f-h9jjr   0/1     Pending   0          0s
+ caskeep@caskeepdeAir  ~/Documents/repo/udacity-devops-p4/project-ml-microservice-kubernetes   master ●  kubectl get pods                                                           ✔  267  02:38:24
+NAME                             READY   STATUS              RESTARTS   AGE
+udacityp4k8sv2-554b4cc5f-h9jjr   0/1     ContainerCreating   0          20s
+ caskeep@caskeepdeAir  ~/Documents/repo/udacity-devops-p4/project-ml-microservice-kubernetes   master ●  kubectl get pods                                                           ✔  268  02:38:43
+NAME                             READY   STATUS    RESTARTS   AGE
+udacityp4k8sv2-554b4cc5f-h9jjr   1/1     Running   0          7m43s
+caskeep@caskeepdeAir  ~/Documents/repo/udacity-devops-p4/project-ml-microservice-kubernetes   master ●  kubectl get svc                                                            ✔  270  02:46:06
+NAME             TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+kubernetes       ClusterIP   10.96.0.1      <none>        443/TCP        2d23h
+udacityp4k8sv2   NodePort    10.96.75.155   <none>        80:31985/TCP   6m18s
+
+so, modify make prediction shell
+with parameters with curl $(minikube ip):31985
+
+caskeepdeAir:project-ml-microservice-kubernetes caskeep$ ./make_prediction.sh 
+Port: 31985
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
