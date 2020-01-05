@@ -5,11 +5,13 @@
 
 # Step 1:
 # Create dockerpath
-dockerpath=caskeep/udacityp4
+dockerpath=caskeep/udacityp4:second
 
 # Step 2:  
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
+docker login -u caskeep -p mypassword
+docker tag udacityp4 $dockerpath
 
 # Step 3:
 # Push image to a docker repository
